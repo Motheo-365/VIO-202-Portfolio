@@ -17,7 +17,7 @@
 
     <section class="javascript">
       <p id="image">
-        <a href="#singleJS"><img src="../assets/js.png" alt="Picture of Tic Tac Toe game" /></a>
+        <a href="#singleJS"><p> Picture of my Javascript Game </p></a>
       </p>
       <p class="caption">JavaScript</p>
     </section>
