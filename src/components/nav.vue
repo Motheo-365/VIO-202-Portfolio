@@ -90,4 +90,5 @@ onMounted(() => {
     border-right: 3px solid #ffffff;
     border-radius: 8px 8px 0 0;
   }
+
 </style>
