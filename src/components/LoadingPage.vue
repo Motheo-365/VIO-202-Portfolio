@@ -27,7 +27,6 @@
     inset: 0; /* fills the container */
     padding: 2px; /* border thickness */
     border-radius: 5px;
-    background: linear-gradient(90deg, rgb(255, 255, 255), rgb(155, 105, 190));
     background-size: 300% 300%;
     animation: borderMove 4s linear infinite;
     -webkit-mask: 
@@ -48,15 +47,15 @@
         left: 50%;
         border-radius: 5%;
         align-items: center;
-        border-top: 15px solid #6836ad;
+        border-top: 15px solid #fcfcfc;
         transform: translate(-50%, -50%);
     }
 
     .ball {
         height: 40px;
         width: 40px;
+        border: 5px solid white;
         border-radius: 50%;
-        background-color: #420093;
         position: relative;
         transform-origin: 50% -300%;
     }

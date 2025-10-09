@@ -12,12 +12,12 @@
 </template>
 
 <style scoped>
-    .Me {
+  .Me {
     display: flex;                /* put children side by side */
     gap: 2rem;                    /* spacing between image box & text */
     padding: 20px;
     transform: translateX(-75%);          /* move everything to the right a bit */
-    }
+  }
 
     #image {
       border: 2px solid black;
