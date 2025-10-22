@@ -17,6 +17,7 @@
     gap: 2rem;                    /* spacing between image box & text */
     padding: 20px;
     transform: translateX(-75%);          /* move everything to the right a bit */
+    background-color: rgba(0, 0, 0, 0.452);
   }
 
     #image {
