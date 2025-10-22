@@ -22,7 +22,7 @@
       />
     </div>
 
-    <h3 class="hook alt"> Scroll to explore my mind </h3>
+    <h3 class="hook alt"> Step into the code that breathes life to me. </h3>
   </div>
 </template>
 
@@ -46,8 +46,8 @@ import { ref } from "vue"
   font-size: 1rem;
   color: #ffffff;
   text-shadow: 0 0 15px #ff00ff, 0 0 25px #ff0088;
-  transform: translate(32%, -1200%);
-  animation: glitch 2s infinite;
+  transform: translate(20%, -1200%);
+  animation: glitch 4s infinite;
 }
 
 /* Floating and glowing fairy */
