@@ -64,6 +64,10 @@
         <p id="nav"><Nav /></p>
       </header>
 
+      <!-- Sections stacked like HTML -->
+        <Animations />
+
+
       <section id="landing" :style="{ opacity: landingOpacity, transition: 'opacity 0.3s linear' }">
         <LandingPage />
       </section>
@@ -79,10 +83,6 @@
       <section id = "contact">
         <Contact />
       </section>
-
-      <!-- Sections stacked like HTML -->
-        <Animations />
-
 
       <footer>
         <Footer />

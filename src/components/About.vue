@@ -4,9 +4,9 @@
 
     <div class="About">
       <h1> Hi! </h1>
-      <h2> I'm Motheo, a multimedia student at the Univeristy of Pretoria in South Africa. I have a passion for creating innovative solutions that make a difference.
-      With some foundation in computer science and a keen eye for detail, I strive to deliver high-quality software that exceeds expectations. </h2>
-      <h2> Let's connect and explore how we can collaborate on exciting projects! </h2>
+      <p> I'm Motheo, a multimedia student at the Univeristy of Pretoria in South Africa. I have a passion for creating innovative solutions that make a difference.
+      With some foundation in computer science and a keen eye for detail, I strive to deliver high-quality software that exceeds expectations. </p>
+      <p> Let's connect and explore how we can collaborate on exciting projects! </p>
     </div>
   </div>
 </template>

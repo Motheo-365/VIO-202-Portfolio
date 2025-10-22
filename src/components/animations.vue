@@ -157,7 +157,7 @@
     top: 50%;
     left: 10px;
     transform: translateY(-50%);
-    z-index: 1000;
+    z-index: 100;
     display: flex;
     flex-direction: column;
     gap: 1rem;

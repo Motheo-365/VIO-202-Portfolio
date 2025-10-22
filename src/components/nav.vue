@@ -51,6 +51,7 @@ onMounted(() => {
     gap: 2rem;
     align-items: center;
     color: white;
+    background-color: rgba(0, 0, 0, 0.569);
   }
 
   .brand {

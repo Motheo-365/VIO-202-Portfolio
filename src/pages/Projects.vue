@@ -167,7 +167,7 @@ h1 {
   gap: 10rem;
   align-items: center;
   justify-content: center;
-  padding-bottom: 15rem;
+  padding-bottom: 15zi-rem;
 }
 
 .single-projects section {

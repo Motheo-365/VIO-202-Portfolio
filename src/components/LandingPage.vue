@@ -1,65 +1,101 @@
 <template>
-  <div class="image">
-    <!-- Fairy -->
-    <img 
-      id="fairy" 
-      src="../assets/fairy.png" 
-      alt="fairy" 
-      @mouseenter="startDripping($event)" 
-      @mouseleave="stopDripping"
-    />
+  <div class="hook-container">
+    <h3 class="hook"> Crafting worlds where code meets imagination. </h3>
 
-    <!-- Ripple -->
-    <img 
-      id="ripple" 
-      src="../assets/ripple.png" 
-      alt="ripple" 
-      @mouseenter="startDripping($event)" 
-      @mouseleave="stopDripping"
-    />
+    <div class="image">
+      <!-- Fairy -->
+      <img 
+        id="fairy" 
+        src="../assets/fairy.png" 
+        alt="fairy" 
+        @mouseenter="startDripping($event)" 
+        @mouseleave="stopDripping"
+      />
 
+      <!-- Ripple -->
+      <img 
+        id="ripple" 
+        src="../assets/ripple.png" 
+        alt="ripple" 
+        @mouseenter="startDripping($event)" 
+        @mouseleave="stopDripping"
+      />
+    </div>
+
+    <h3 class="hook alt"> Scroll to explore my mind </h3>
   </div>
-
-  <!--
-  <h1 class="footer-title">MOTHEO MORENA</h1>
-  -->
-
-  <!-- Snow/dots -->
 </template>
 
 <script setup>
 import { ref } from "vue"
-
 </script>
 
 <style scoped>
- /* .footer-title {
-    font-size: 3rem;
-    text-align: center;
-    position: fixed;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    color: rgba(255, 255, 255, 0.83);
-  } */
 
-  #fairy {
-    position: fixed;
-    top: 24vh;
-    right: 45vw;
-    width: 12vw;
-    cursor: pointer;
-    z-index: 10001;
-  }
+.hook-container {
+  background: radial-gradient(circle at center, #050505 0%, #000 100%);
+}
 
-  #ripple {
-    position: fixed;
-    top: 50vh;
-    right: 45vw;
-    width: 18vw;
-    animation: ripple 4s infinite;
-    opacity: 0.6;
-    cursor: pointer;
-    z-index: 10001; 
-  }
+.hook {
+  font-size: 2rem;
+  color: #dcd5f7;
+  text-shadow: 0 0 15px #00ffff, 0 0 25px #0088ff;
+  letter-spacing: 2px;
+  margin: 2rem 0;
+  transform: translate(15%, -1250%);
+  animation: glow-pulse 4s ease-in-out infinite;
+}
+
+.hook.alt {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1rem;
+  color: #ffffff;
+  text-shadow: 0 0 15px #ff00ff, 0 0 25px #ff0088;
+  margin-top: 3rem;
+  animation: glitch 2s infinite;
+}
+
+/* Floating and glowing fairy */
+#fairy {
+  position: fixed;
+  top: 24vh;
+  right: 45vw;
+  width: 12vw;
+  cursor: pointer;
+  z-index: 10001;
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Ripple glow effect */
+#ripple {
+  position: fixed;
+  top: 50vh;
+  right: 45vw;
+  width: 18vw;
+  animation: ripple 4s infinite;
+  opacity: 0.6;
+  cursor: pointer;
+  z-index: 10001; 
+}
+
+/* Animations */
+@keyframes glow-pulse {
+  0%, 100% { text-shadow: 0 0 15px #9000ff, 0 0 25px #9000ff; }
+  50% { text-shadow: 0 0 25px #9000ffff, 0 0 45px #9000ff; }
+}
+
+@keyframes glitch {
+  0%, 100% { text-shadow: 2px 2px #b700ff, -2px -2px #ddbeff; }
+  50% { text-shadow: -2px -2px #b700ff, 2px 2px #ddbeff; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes ripple {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.1); opacity: 0.9; }
+}
 </style>
