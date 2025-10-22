@@ -95,7 +95,7 @@
     ctx.fillStyle = 'rgba(0,0,0,0.08)'; // lighter trail
     ctx.fillRect(0, 0, canvas.value.width, canvas.value.height);
 
-    ctx.fillStyle = '#eae1fc';
+    ctx.fillStyle = '#eae1fc53'; //change colour of dots
     dots.forEach(d => {
         d.x += (d.tx - d.x) * d.speed;
         d.y += (d.ty - d.y) * d.speed;

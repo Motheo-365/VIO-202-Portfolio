@@ -12,6 +12,7 @@
   </section>
 </template>
 
+
 <style scoped>
     #pendulum {
     position: relative;

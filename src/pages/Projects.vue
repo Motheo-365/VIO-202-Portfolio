@@ -75,7 +75,7 @@
       </video>
       <div class="links">
         <a href="#top" title="Back to Top of Projects">← Back</a>
-        <a href="@/assets/Tic-Tac-Toe/index.html" target="_blank" title="Play the game here">Play it Here</a>
+        <a href="/Tic-Tac-Toe/index.html" target="_blank" title="Play the game here">Play it Here</a>
       </div>
     </section>
   </div>
@@ -121,6 +121,8 @@ html {
   align-items: start;
   padding: 3rem 2rem;
   margin-bottom: 6rem;
+  background-color: rgba(0, 0, 0, 0.719);
+  padding: 1.2rem;
 }
 
 .grid-projects section {
@@ -131,8 +133,9 @@ html {
 }
 
 .grid-projects section:hover {
+  padding: 1.2rem;
   transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.15);
+  box-shadow: 0 5px 15px rgba(112, 97, 119, 0.576);
 }
 
 #image {
@@ -167,7 +170,7 @@ h1 {
   gap: 10rem;
   align-items: center;
   justify-content: center;
-  padding-bottom: 15zi-rem;
+  padding-bottom: 15rem;
 }
 
 .single-projects section {
@@ -186,7 +189,7 @@ h1 {
   border-radius: 15px;
   margin-bottom: 1.5rem;
   max-width: 100%;
-  height: auto;
+  height: 60vh;
 }
 
 .single-projects a {
@@ -205,8 +208,9 @@ h1 {
 
 /* Highlight effect when scrolling to section */
 .single-projects section.highlight {
-  border: 3px solid #ffcc00;
-  box-shadow: 0 0 20px #ffcc00;
+  border: 3px solid #dcbff5b2;
+  box-shadow: 0 0 20px #c391f2cb;
+  padding: 2rem;
 }
 
 .more > p {

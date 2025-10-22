@@ -1,74 +1,75 @@
 <script setup>
-  import LoadingPage from './components/LoadingPage.vue'
-  import LandingPage from './components/LandingPage.vue'
-  import About from './components/About.vue'
-  import Animations from './components/animations.vue'
-  import Projects from '../src/pages/Projects.vue'
-  import Contact from '../src/pages/Contact.vue'
-  import Nav from './components/nav.vue'
-  import DateTime from './components/date-time.vue'
-  import Footer from './components/footer.vue'
-  import { ref, onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
+import LoadingPage from './components/LoadingPage.vue'
+import LandingPage from './components/LandingPage.vue'
+import About from './components/About.vue'
+import Animations from './components/animations.vue'
+import Projects from '../src/pages/Projects.vue'
+import Contact from '../src/pages/Contact.vue'
+import Nav from './components/nav.vue'
+import DateTime from './components/date-time.vue'
+import Footer from './components/footer.vue'
 
-  const loading = ref(true)
-  const landingOpacity = ref(1) // fade control
-  const currentSection = ref('landing') // track current section
+const loading = ref(true)
+const landingOpacity = ref(1)
 
-  onMounted(async () => {
-    await initialiseApp()
-    loading.value = false
+onMounted(async () => {
+  await preloadAssets()
+  loading.value = false
+  window.addEventListener('scroll', handleScroll)
+})
 
-    // add scroll event for fading
-    window.addEventListener('scroll', handleScroll)
+// ✅ Wait for images and components to load before continuing
+async function preloadAssets() {
+  const images = Array.from(document.images)
+  const imagePromises = images.map(img => {
+    if (img.complete) return Promise.resolve()
+    return new Promise(resolve => {
+      img.onload = resolve
+      img.onerror = resolve
+    })
   })
 
-  async function initialiseApp() {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        console.log("App initialised ✅")
-        resolve()
-      }, 2000)
-    })
+  await Promise.all([
+    ...imagePromises,
+    new Promise(resolve => setTimeout(resolve, 1500)) // fallback delay for slow assets
+  ])
+
+  console.log("All assets preloaded ✅")
+}
+
+function handleScroll() {
+  const aboutSection = document.getElementById("about")
+  if (!aboutSection) return
+
+  const rect = aboutSection.getBoundingClientRect()
+  const windowHeight = window.innerHeight
+
+  if (rect.top < windowHeight && rect.top > 0) {
+    landingOpacity.value = Math.max(0, rect.top / windowHeight)
+  } else if (rect.top <= 0) {
+    landingOpacity.value = 0
+  } else {
+    landingOpacity.value = 1
   }
-
-  function handleScroll() {
-    const aboutSection = document.getElementById("about")
-    const projectsSection = document.getElementById("projects")
-    if (!aboutSection || !projectsSection) return
-
-    const rect = aboutSection.getBoundingClientRect()
-    const windowHeight = window.innerHeight
-
-    // When About is coming into view (top between bottom and mid of viewport)
-    if (rect.top < windowHeight && rect.top > 0) {
-      // map rect.top to opacity (1 → 0)
-      landingOpacity.value = Math.max(0, rect.top / windowHeight)
-    } else if (rect.top <= 0) {
-      landingOpacity.value = 0 // fully faded once About fills screen
-    } else {
-      landingOpacity.value = 1 // fully visible at top
-    }
-  }
+}
 </script>
 
 <template>
   <div>
-    <!-- Loading screen -->
+    <!-- Show loading screen -->
     <LoadingPage v-if="loading" />
 
-    <!-- Main content -->
+    <!-- Main app -->
     <div v-else>
-      <!-- Sticky / top navigation -->
       <header class="header-bar">
         <p id="date"><DateTime /></p>
         <p id="nav"><Nav /></p>
       </header>
 
-      <!-- Sections stacked like HTML -->
-       <div class = "animations-overlay">
+      <div class="animations-overlay">
         <Animations />
       </div>
-
 
       <section id="landing" :style="{ opacity: landingOpacity, transition: 'opacity 0.3s linear' }">
         <LandingPage />
@@ -78,11 +79,11 @@
         <About />
       </section>
 
-      <section id = "projects">
+      <section id="projects">
         <Projects />
       </section>
 
-      <section id = "contact">
+      <section id="contact">
         <Contact />
       </section>
 
@@ -94,80 +95,59 @@
 </template>
 
 <style scoped>
-    .contact-container {
-    max-width: 600px;
-    margin: 5rem auto;
-    padding: 2rem;
-    border: 2px solid white;
-    border-radius: 20px;
-    text-align: center;
-    color: white;
-    }
+  section, header, footer {
+    position: relative; /* enables z-index */
+    z-index: 1;         /* above animation */
+  }
 
-    h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    }
-
-    .intro {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-    opacity: 0.8;
-    }
-
-    .contact-form {
+  .header-bar {
     display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    }
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    top: 0;
+    z-index: 2;
+  }
 
-    .form-group {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    }
+  #landing {
+    z-index: 1;
+  }
 
-    label {
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    }
+   .animations-overlay {
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+  }
 
-    input,
-    textarea {
-    width: 100%;
-    padding: 0.8rem;
-    border-radius: 8px;
-    border: none;
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    font-size: 1rem;
-    }
+  #nav {
+    margin-right: 25rem;
+    right: 0;
+  }
 
-    input:focus,
-    textarea:focus {
-    outline: 2px solid white;
-    }
+  #about {
+    transform: translateX(75%) translateY(30%);
+    margin-bottom: 10rem;
+    z-index:1;
+  }
 
-    button {
-    background-color: white;
-    color: black;
-    font-weight: bold;
-    padding: 0.8rem 1.5rem;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    }
+  #projects {
+    z-index:1;
+  }
 
-    button:hover {
-    background-color: rgba(255, 255, 255, 0.8);
-    }
+  #contact {
+    z-index:1;
+  }
 
-    .thank-you {
-    margin-top: 2rem;
-    color: rgb(196, 144, 238);
-    font-size: 1.2rem;
-    font-weight: bold;
-    }
+  html {
+    scroll-behavior: smooth;
+  }
+
+  section {
+    min-height: 95vh;
+  }
+
+  footer {
+    z-index: 1;
+  }
 </style>

@@ -54,10 +54,12 @@ import { ref } from "vue"
 #fairy {
   position: fixed;
   top: 30vh;
-  right: 45vw;
+  right: 46vw;
   width: 10vw;
-  cursor: pointer;
   z-index: 1;
+  background-color: rgba(0, 0, 0, 0.664);
+  border-radius: 15px;
+  padding: 1rem;
   animation: float 4s ease-in-out infinite;
 }
 
@@ -69,8 +71,10 @@ import { ref } from "vue"
   width: 16vw;
   animation: ripple 4s infinite;
   opacity: 0.6;
-  cursor: pointer;
   z-index: 1; 
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.664);
+  border-radius: 15px;
 }
 
 /* Animations */
