@@ -120,15 +120,15 @@
   #about {
     transform: translateX(75%) translateY(30%);
     margin-bottom: 10rem;
-    z-index: 100;
+    z-index: 1001;
   }
 
   #projects {
-    z-index: 105;
+    z-index: 1001;
   }
 
   #contact {
-    z-index: 106;
+    z-index: 1001;
   }
 
   html {

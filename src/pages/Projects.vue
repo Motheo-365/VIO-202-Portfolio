@@ -5,21 +5,21 @@
   <div class="grid-projects">
     <section class="Comic" @click="scrollTo('singleComic')">
       <p id="image">
-        <img src="../assets/Comic.png" alt="Comic Cover" />
+        <img src="@/assets/Comic.png" alt="Comic Cover" />
       </p>
       <p class="caption">Comic</p>
     </section>
 
     <section class="cpp" @click="scrollTo('singleCpp')">
       <p id="image">
-        <img src="../assets/c++.jpeg" alt="Picture of C++ code" />
+        <img src="@/assets/c++.jpeg" alt="Picture of C++ code" />
       </p>
       <p class="caption">C++</p>
     </section>
 
     <section class="javascript" @click="scrollTo('singleJS')">
       <p id="image">
-        <img src="../assets/Tic-Tac-Toe/game.png" alt="Picture of Tic Tac Toe game" />
+        <img src="@/assets/Tic-Tac-Toe/game.png" alt="Picture of Tic Tac Toe game" />
       </p>
       <p class="caption">JavaScript</p>
     </section>
@@ -34,7 +34,7 @@
     <section id="singleComic" ref="singleComic">
       <h2>Comic</h2>
       <video
-        src="../assets/sample.mp4"
+        src="@/assets/sample.mp4"
         width="900"
         height="540"
         autoplay
@@ -49,7 +49,7 @@
     <section id="singleCpp" ref="singleCpp">
       <h2>C++ Project</h2>
       <video
-        src="../assets/sample.mp4"
+        src="@/assets/sample.mp4"
         width="900"
         height="540"
         autoplay
@@ -64,7 +64,7 @@
     <section id="singleJS" ref="singleJS">
       <h2>JavaScript Game</h2>
       <video
-        src="../assets/Tic-Tac-Toe/game.mp4"
+        src="@/assets/Tic-Tac-Toe/game.mp4"
         width="900"
         height="540"
         autoplay
@@ -75,7 +75,7 @@
       </video>
       <div class="links">
         <a href="#top" title="Back to Top of Projects">← Back</a>
-        <a href="../assets/Tic-Tac-Toe/index.html" target="_blank" title="Play the game here">Play it Here</a>
+        <a href="@/assets/Tic-Tac-Toe/index.html" target="_blank" title="Play the game here">Play it Here</a>
       </div>
     </section>
   </div>
