@@ -1,9 +1,9 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 const currentTime = ref('')
 const currentDate = ref('')
-const activeSection = ref('projects')
+const activeSection = ref('landing') // default active section
 
 function updateTimeAndDate() {
   const now = new Date()
@@ -11,7 +11,7 @@ function updateTimeAndDate() {
   currentDate.value = now.toLocaleDateString([], { year: 'numeric', month: 'long', day: 'numeric' })
 }
 
-// Smooth scroll to section
+// Smooth scroll when clicking a nav item
 function scrollToSection(sectionId) {
   const section = document.querySelector(`#${sectionId}`)
   if (section) {
@@ -20,18 +20,54 @@ function scrollToSection(sectionId) {
   }
 }
 
+// look at sections to update highlighted link
+function observeSections() {
+  const sections = document.querySelectorAll('section[id]')
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          console.log('Active section detected:', entry.target.id) // debug
+          activeSection.value = entry.target.id
+        }
+      })
+    },
+    {
+      root: null,
+      rootMargin: '-80px 0px 0px 0px', // offset for navbar height
+      threshold: 0.2 // 20% visible triggers active
+    }
+  )
+  sections.forEach(section => observer.observe(section))
+  return observer
+}
+
+let observer
+
 onMounted(() => {
   updateTimeAndDate()
-  setInterval(updateTimeAndDate, 60000)
+  setInterval(updateTimeAndDate, 60000) // update clock every minute
+  observer = observeSections()
+})
+
+onUnmounted(() => {
+  if (observer) observer.disconnect()
 })
 </script>
 
 <template>
   <nav class="navbar">
-    <a href="#home" class="brand"
-    :class="{ active: activeSection === 'home'}"
-    @click.prevent="scrollToSection('landing')">Motheo Morena</a>
     <ul class="nav-links">
+      <li>
+        <a 
+          href="#landing" 
+          class="brand"
+          :class="{ active: activeSection === 'landing'}"
+          @click.prevent="scrollToSection('landing')"
+        >
+          Motheo Morena
+        </a>    
+      </li>
       <li>
         <a
           href="#projects"
