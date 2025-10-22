@@ -17,7 +17,7 @@
 
     <section class="javascript">
       <p id="image">
-        <a href="#singleJS"><p> Picture of my Javascript Game </p></a>
+        <a href="#singleJS"><img src="../assets/Tic-Tac-Toe/game.png" alt="Picture of Tic Tac Toe game" /></a>
       </p>
       <p class="caption">JavaScript</p>
     </section>
@@ -60,15 +60,16 @@
     <section id="singleJS">
       <h2>JavaScript Game</h2>
       <video
-        src="../assets/sample.mp4"
+        src="../assets/Tic-Tac-Toe/game.mp4"
         width="900px"
         height="540px"
         autoplay
         controls
       >
-        <p>A simple Sample Video</p>
+        <p> My Simple Javascript Game </p>
       </video>
       <a href="#top" alt = "Back to Top of Projects">← Back</a>
+      <a href = "../assets/Tic-Tac-Toe/index.html" alt = "Link to Game" target="_blank"> Play it Here </a>
     </section>
   </div>
 </template>
