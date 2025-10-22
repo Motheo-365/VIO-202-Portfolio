@@ -41,7 +41,7 @@
     </form>
 
     <p v-if="submitted" class="thank-you">
-      ✅ Thank you, {{ form.name.split(' ')[0] }}! I’ll get back to you soon.
+       Thank you, {{ form.name.split(' ')[0] }}! I’ll get back to you soon.
     </p>
   </div>
 </template>
@@ -60,6 +60,11 @@ const submitted = ref(false)
 function handleSubmit() {
   console.log('Form submitted:', form.value)
   submitted.value = true
+
+  //Hide message after some time
+  setTimeout( () => {
+    submitted.value = false
+  }, 3000)
 
   // Reset form
   form.value = {
@@ -141,9 +146,31 @@ function handleSubmit() {
     background-color: rgba(255, 255, 255, 0.8);
     }
 
-    .thank-you {
+  .thank-you {
     margin-top: 2rem;
-    color: lightgreen;
+    color: rgb(196, 144, 238);
     font-size: 1.2rem;
+    font-weight: bold;
+    opacity: 1;
+    animation: fadeOut 3s ease forwards;
+  }
+
+  /* Futuristic cinematic fade-out animation */
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+      text-shadow: 0 0 10px rgba(196, 144, 238, 0.8);
     }
+    50% {
+      opacity: 0.7;
+      transform: scale(1.05);
+      text-shadow: 0 0 20px rgba(196, 144, 238, 1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.95);
+      text-shadow: 0 0 0 rgba(196, 144, 238, 0);
+    }
+  }
 </style>

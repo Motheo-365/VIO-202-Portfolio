@@ -57,7 +57,7 @@ onUnmounted(() => {
         gap: 1rem;
 
         font-family: 'Share Tech Mono', monospace;
-        color: #daf6ff;
+        color: #f0e5f5;
         text-shadow: 0 0 20px rgba(255, 255, 255, 0.623), 0 0 20px rgba(10, 175, 230, 0);
         text-align: left;
         margin-bottom: 45em;

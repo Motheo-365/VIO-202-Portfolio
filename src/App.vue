@@ -65,7 +65,9 @@
       </header>
 
       <!-- Sections stacked like HTML -->
+       <div class = "animations-overlay">
         <Animations />
+      </div>
 
 
       <section id="landing" :style="{ opacity: landingOpacity, transition: 'opacity 0.3s linear' }">
@@ -92,54 +94,80 @@
 </template>
 
 <style scoped>
-  section, header, footer {
-    position: relative; /* enables z-index */
-    z-index: 1;         /* above animation */
-  }
+    .contact-container {
+    max-width: 600px;
+    margin: 5rem auto;
+    padding: 2rem;
+    border: 2px solid white;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    }
 
-  .header-bar {
+    h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    }
+
+    .intro {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+    }
+
+    .contact-form {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1002;
-  }
+    flex-direction: column;
+    gap: 1.5rem;
+    }
 
-  #landing {
-    z-index: 100;
-  }
+    .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    }
 
-  #nav {
-    margin-right: 25rem;
-    position: absolute;
-    right: 0;
-    z-index: 1001;
-  }
+    label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    }
 
-  #about {
-    transform: translateX(75%) translateY(30%);
-    margin-bottom: 10rem;
-    z-index: 1001;
-  }
+    input,
+    textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+    }
 
-  #projects {
-    z-index: 1001;
-  }
+    input:focus,
+    textarea:focus {
+    outline: 2px solid white;
+    }
 
-  #contact {
-    z-index: 1001;
-  }
+    button {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    }
 
-  html {
-    scroll-behavior: smooth;
-  }
+    button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    }
 
-  section {
-    min-height: 95vh;
-  }
-
-  footer {
-    z-index: 100;
-  }
+    .thank-you {
+    margin-top: 2rem;
+    color: rgb(196, 144, 238);
+    font-size: 1.2rem;
+    font-weight: bold;
+    }
 </style>

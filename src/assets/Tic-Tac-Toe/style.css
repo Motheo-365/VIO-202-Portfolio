@@ -88,7 +88,7 @@ button {
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    z-index: 1001;
+    z-index:1;
     box-shadow: 0 0 1rem rgba(230, 208, 239, 0.4);
     font-size: 3vmin;
     color: white;
@@ -105,7 +105,7 @@ button {
     height: 100%;
     backdrop-filter: blur(5px);   /* blur the background */
     background-color: rgba(0,0,0,0.3); /* darken behind */
-    z-index: 1000;                /* under the message container */
+    z-index: 10;                /* under the message container */
     display: none;                /* hidden by default */
 }
 

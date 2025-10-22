@@ -31,11 +31,6 @@ import { ref } from "vue"
 </script>
 
 <style scoped>
-
-.hook-container {
-  background: radial-gradient(circle at center, #050505 0%, #000 100%);
-}
-
 .hook {
   font-size: 2rem;
   color: #dcd5f7;
@@ -51,18 +46,18 @@ import { ref } from "vue"
   font-size: 1rem;
   color: #ffffff;
   text-shadow: 0 0 15px #ff00ff, 0 0 25px #ff0088;
-  margin-top: 3rem;
+  transform: translate(32%, -1200%);
   animation: glitch 2s infinite;
 }
 
 /* Floating and glowing fairy */
 #fairy {
   position: fixed;
-  top: 24vh;
+  top: 30vh;
   right: 45vw;
-  width: 12vw;
+  width: 10vw;
   cursor: pointer;
-  z-index: 10001;
+  z-index: 1;
   animation: float 4s ease-in-out infinite;
 }
 
@@ -71,11 +66,11 @@ import { ref } from "vue"
   position: fixed;
   top: 50vh;
   right: 45vw;
-  width: 18vw;
+  width: 16vw;
   animation: ripple 4s infinite;
   opacity: 0.6;
   cursor: pointer;
-  z-index: 10001; 
+  z-index: 1; 
 }
 
 /* Animations */

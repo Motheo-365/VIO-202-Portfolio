@@ -157,7 +157,7 @@
     top: 50%;
     left: 10px;
     transform: translateY(-50%);
-    z-index: 100;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -167,9 +167,11 @@
     button {
     padding: 8px 14px;
     font-size: 16px;
+    font-weight: bold;
     border: none;
-    background: #fff2;
-    color: #fff;
+    background: rgba(30, 29, 29, 0.693);
+    border: 1px ridge rgba(128, 0, 128, 0.634);
+    color: #ffffff;
     cursor: pointer;
     border-radius: 6px;
     transition: background 0.3s;
