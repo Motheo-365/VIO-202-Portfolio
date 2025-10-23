@@ -1,0 +1,148 @@
+#intro {
+    position: relative;
+    max-width: 60%;
+    margin: auto;
+    padding: 0.1rem;
+    color: white;
+    font-family: "Zain", sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    transform: translateY(40rem);
+    cursor: pointer;
+}
+
+#scene_1 {
+    cursor: pointer;
+    position: relative;
+    max-width: 55vw;
+    margin-top: 3rem;
+    display: block;
+}
+
+#panel_1 img, #panel_2 img {
+    height: 80vh;
+    width: auto;
+    display: block;
+    object-fit: contain;
+    margin: 0 auto;
+    margin-bottom: 4rem;
+}
+
+
+#panel_2 {
+    position: relative;
+    margin: 20rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+
+    cursor: pointer;
+}
+
+#panel_2:hover .beep {
+    animation: beeping 1.5s 1 steps(1), glowPulse 2s steps(1) ease-in-out;
+}
+
+.comic {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.intro {
+    max-width: 50vw;
+    position: relative;
+    left: 4vw;
+    margin: 0 auto;
+}
+
+.text {
+    background-color: white;
+    color: black;
+    font-family: "Zain", sans-serif;
+    font-weight: 300;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    margin: 0rem auto;
+    display: inline-block;
+    position: relative;
+    left: -13.4rem;
+}
+
+.beep {
+    position: absolute;
+    color: rgb(131, 8, 8);
+    font-size: 4.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    transform-origin: center;
+    cursor: pointer;
+    transform: translate(3em, 3em);
+}
+
+.b1{
+    top: 10%;
+    left: 40%;
+    transform: rotate(-40deg) translate(-50px, 420px) rotate(40deg);
+
+}
+
+.b2 {
+  top: 40%;
+  left: 30%;
+  transform: rotate(45deg) translate(-280px, -120px) rotate(-90deg);
+}
+
+.b3{
+    top: 10%;
+    left: 40%;
+    transform: rotate(-40deg) translate(120px, 120px) rotate(40deg);
+}
+
+.b4 {
+  top: 40%;
+  left: 30%;
+  transform: rotate(60deg) translate(-130px, 150px);
+}
+
+.huhhh {
+    position: relative;
+    top: 10rem;
+    font-size: 2rem;
+}
+
+/* Glowing border animation */
+@keyframes glowPulse {
+    0% {
+        filter: drop-shadow(0 0 5px #f29858);
+    }
+    50% {
+        filter: drop-shadow(0 0 10px #f29858);
+    }
+    100% {
+        filter: drop-shadow(0 0 5px #f29858);
+    }
+}
+
+@keyframes beeping {
+    0%,100% {opacity: 0;}
+    20% {opacity: 1; font-size: 5rem;}
+}
+
+
+/* Delay each beep slightly to appear one by one */
+#panel_2 .beep:nth-child(1) {
+    animation-delay: 0s;
+}
+#panel_2 .beep:nth-child(2) {
+    animation-delay: 0.3s;
+}
+#panel_2 .beep:nth-child(3) {
+    animation-delay: 0.6s;
+}

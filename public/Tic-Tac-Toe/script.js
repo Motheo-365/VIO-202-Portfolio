@@ -61,8 +61,11 @@ let overlay = document.querySelector('.overlay');
 
 const showWinner = (winner) => {
     msg.innerText = `Congratulations, Winner is ${winner}`;
-    msgContainer.classList.remove('hide');
-    Overlay.style.display = 'block';  // show overlay
+    // Wait 2 seconds before showing overlay and message
+    setTimeout(() => {
+        msgContainer.classList.remove('hide');
+        Overlay.style.display = 'block';
+    }, 1000);
     disableBoxes();
 };
 
@@ -83,8 +86,10 @@ const checkWinner = () => {
     const allFilled = boxes.every(box => box.innerText !== "");
     if (allFilled) {
         msg.innerText = 'Match Drawn';
-        msgContainer.classList.remove('hide');
-        Overlay.style.display = 'block';
+        setTimeout(() => {
+            msgContainer.classList.remove('hide');
+            Overlay.style.display = 'block';
+        }, 800);
         gameOver = true;
     }
 };
