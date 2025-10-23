@@ -65,7 +65,7 @@ const showWinner = (winner) => {
     setTimeout(() => {
         msgContainer.classList.remove('hide');
         Overlay.style.display = 'block';
-    }, 1000);
+    }, 1800);
     disableBoxes();
 };
 
@@ -89,7 +89,7 @@ const checkWinner = () => {
         setTimeout(() => {
             msgContainer.classList.remove('hide');
             Overlay.style.display = 'block';
-        }, 800);
+        }, 1200);
         gameOver = true;
     }
 };
