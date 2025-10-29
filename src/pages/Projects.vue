@@ -5,21 +5,21 @@
   <div class="grid-projects">
     <section class="Comic" @click="scrollTo('singleComic')">
       <p id="image">
-        <img src="@/assets/Comic.png" alt="Comic Cover" />
+        <img :src="comicImg" alt="Comic Cover" />
       </p>
       <p class="caption">Comic</p>
     </section>
 
     <section class="cpp" @click="scrollTo('singleCpp')">
       <p id="image">
-        <img src="@/assets/c++.jpeg" alt="Picture of C++ code" />
+        <img :src="cppImg" alt="Picture of C++ code" />
       </p>
       <p class="caption">C++</p>
     </section>
 
     <section class="javascript" @click="scrollTo('singleJS')">
       <p id="image">
-        <img src="@/assets/Tic-Tac-Toe/game.png" alt="Picture of Tic Tac Toe game" />
+        <img :src="ticTacImg" alt="Picture of Tic Tac Toe game" />
       </p>
       <p class="caption">JavaScript</p>
     </section>
@@ -31,48 +31,48 @@
 
   <!-- SINGLE PROJECTS -->
   <div class="single-projects">
+    <!-- COMIC -->
     <section id="singleComic" ref="singleComic">
       <h2>Comic</h2>
       <video
-        src="@/assets/sample.mp4"
+        :src="landingVideo"
         width="900"
         height="540"
         autoplay
         muted
         controls
-      >
-        Your browser does not support the video tag.
-      </video>
-      <a href="#top" title="Back to Top of Projects">← Back</a>
+      ></video>
+      <div class="links">
+        <a href="#top" title="Back to Top of Projects">← Back</a>
+        <a href="/Comic/comic.html" target="_blank" title="View the Comic">View It Here</a>
+      </div>
     </section>
 
+    <!-- C++ -->
     <section id="singleCpp" ref="singleCpp">
       <h2>C++ Project</h2>
       <video
-        src="@/assets/sample.mp4"
+        :src="sampleVideo"
         width="900"
         height="540"
         autoplay
         muted
         controls
-      >
-        Your browser does not support the video tag.
-      </video>
+      ></video>
       <a href="#top" title="Back to Top of Projects">← Back</a>
     </section>
 
+    <!-- JAVASCRIPT GAME -->
     <section id="singleJS" ref="singleJS">
       <h2>JavaScript Game</h2>
       <video
-        src="@/assets/Tic-Tac-Toe/game.mp4"
+        :src="ticTacVideo"
         width="900"
         height="540"
         autoplay
         muted
         controls
-      >
-        Your browser does not support the video tag.
-      </video>
+      ></video>
       <div class="links">
         <a href="#top" title="Back to Top of Projects">← Back</a>
         <a href="/Tic-Tac-Toe/index.html" target="_blank" title="Play the game here">Play it Here</a>
@@ -84,22 +84,29 @@
 <script setup>
 import { ref } from 'vue';
 
-// refs for your single project sections
+// --- Import all assets from src/assets ---
+import comicImg from '@/assets/Comic.png';
+import cppImg from '@/assets/c++.jpeg';
+import ticTacImg from '@/assets/Tic-Tac-Toe/game.png';
+import landingVideo from '@/assets/Landing_Page.mp4';
+import sampleVideo from '@/assets/sample.mp4';
+import ticTacVideo from '@/assets/Tic-Tac-Toe/game.mp4';
+
+// --- Section Refs ---
 const singleComic = ref(null);
 const singleCpp = ref(null);
 const singleJS = ref(null);
 
 function scrollTo(project) {
-  let sectionRef;
-  if (project === 'singleComic') sectionRef = singleComic.value;
-  else if (project === 'singleCpp') sectionRef = singleCpp.value;
-  else if (project === 'singleJS') sectionRef = singleJS.value;
+  const sectionRef =
+    project === 'singleComic'
+      ? singleComic.value
+      : project === 'singleCpp'
+      ? singleCpp.value
+      : singleJS.value;
 
   if (sectionRef) {
-    // smooth scroll
     sectionRef.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-    // add highlight effect
     sectionRef.classList.add('highlight');
     setTimeout(() => sectionRef.classList.remove('highlight'), 1500);
   }

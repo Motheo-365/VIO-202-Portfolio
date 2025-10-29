@@ -43,10 +43,10 @@ import { ref } from "vue"
 
 .hook.alt {
   font-family: 'Press Start 2P', cursive;
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #ffffff;
   text-shadow: 0 0 15px #ff00ff, 0 0 25px #ff0088;
-  transform: translate(20%, -1200%);
+  transform: translate(28%, -1200%);
   animation: glitch 4s infinite;
 }
 
