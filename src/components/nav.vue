@@ -71,8 +71,8 @@ onUnmounted(() => {
       <li>
         <a
           href="#about"
-          :class="{ active: activeSection === 'me' }"
-          @click.prevent="scrollToSection('me')"
+          :class="{ active: activeSection === 'Me' }"
+          @click.prevent="scrollToSection('Me')"
         >
           Behind the Code
         </a>
