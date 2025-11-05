@@ -12,7 +12,7 @@
 </template>
 
 <style scoped>
-  .Me {
+  .About {
     display: flex;                /* put children side by side */
     gap: 2rem;                    /* spacing between image box & text */
     padding: 20px;
@@ -36,7 +36,7 @@
   text-align: center;
   }
 
-  .About {
+  .Me {
   display: flex;
   flex-direction: column;
   justify-content: center;
