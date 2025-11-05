@@ -76,6 +76,7 @@ onUnmounted(() => {
         >
           Behind the Code
         </a>
+      </li>
       <li>
         <a
           href="#projects"
