@@ -71,8 +71,8 @@ onUnmounted(() => {
       <li>
         <a
           href="#about"
-          :class="{ active: activeSection === 'about' }"
-          @click.prevent="scrollToSection('about')"
+          :class="{ active: activeSection === 'me' }"
+          @click.prevent="scrollToSection('me')"
         >
           Behind the Code
         </a>
@@ -103,13 +103,20 @@ onUnmounted(() => {
 .navbar {
   position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px; /* consistent height */
   display: flex;
-  gap: 2rem;
+  justify-content: space-between; /* brand on left, links on right */
   align-items: center;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.569);
-  padding: 0.8rem 2rem;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px); /* adds a soft glass effect */
+  padding: 0 3rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   z-index: 1000;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+
+  animation: fadeSlideIn 0.8s ease forwards;
 }
 
 .brand {
@@ -117,34 +124,50 @@ onUnmounted(() => {
   font-weight: bold;
   text-decoration: none;
   color: white;
+  transition: color 0.3s ease;
+}
+
+.brand:hover {
+  color: #a960fd; /* subtle color glow */
 }
 
 .nav-links {
   list-style: none;
   display: flex;
   gap: 2rem;
+  align-items: center;
   margin: 0;
   padding: 0;
 }
 
 .nav-links a {
-  position: relative;
   text-decoration: none;
   color: white;
   font-size: 1rem;
-  padding: 0.5rem 1rem;
-  border: 3px solid transparent;
-  transition: all 0.3s ease;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
 }
 
 .nav-links a:hover {
-  color: #a960fd8f;
+  color: #a960fd;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .nav-links a.active {
-  border-top: 3px solid #ffffff;
-  border-left: 3px solid #ffffff;
-  border-right: 3px solid #ffffff;
-  border-radius: 8px 8px 0 0;
+  border-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
 }
+
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 </style>
