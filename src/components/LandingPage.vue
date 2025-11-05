@@ -11,7 +11,7 @@
         @mouseenter="startDripping($event)" 
         @mouseleave="stopDripping"
       />
-
+      <h1> HELLO </h1>
       <!-- Ripple -->
       <img 
         id="ripple" 
