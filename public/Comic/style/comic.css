@@ -1,3 +1,24 @@
+.landing-page,
+.stats,
+.comic {
+  position: relative;
+  z-index: 1;
+}
+
+.landing-page {
+  z-index: 3;
+}
+
+.stats {
+  margin-top: 5rem; /* ensures spacing below landing page */
+  z-index: 2;
+}
+
+.comic {
+  margin-top: 5rem;
+  z-index: 1;
+}
+
 #intro {
     position: relative;
     max-width: 60%;
