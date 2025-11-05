@@ -56,12 +56,12 @@ function handleScroll() {
 </script>
 
 <template>
-  <div>
+  <div class >
     <!-- Show loading screen -->
     <LoadingPage v-if="loading" />
 
     <!-- Main app -->
-    <div v-else>
+    <div v-else class = "main">
       <header class="header-bar">
         <p id="date"><DateTime /></p>
         <p id="nav"><Nav /></p>
@@ -76,7 +76,9 @@ function handleScroll() {
       </section>
 
       <section id="about">
-        <About />
+        <div class = "about-wrapper">
+          <About />
+        </div>
       </section>
 
       <section id="projects">
@@ -120,17 +122,26 @@ function handleScroll() {
     z-index: 0;
   }
 
+.main {
+  margin: 0rem auto;
+  max-width: 85%;
+}
+
   #nav {
     margin-right: 25rem;
     right: 0;
   }
 
   #about {
-    transform: translateX(75%) translateY(30%);
     margin-bottom: 10rem;
-    z-index:1;
+    z-index: 1;
   }
 
+  .about-wrapper {
+    transform: translateX(75%) translateY(30%);
+  }
+
+  
   #projects {
     z-index:1;
   }

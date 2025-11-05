@@ -36,16 +36,16 @@ import { ref } from "vue"
   text-shadow: 0 0 15px #00ffff, 0 0 25px #0088ff;
   letter-spacing: 2px;
   margin: 2rem 0;
-  transform: translate(15%, -1250%);
+  transform: translate(8%, -1250%);
   animation: glow-pulse 4s ease-in-out infinite;
 }
 
 .hook.alt {
   font-family: 'Press Start 2P', cursive;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #ffffff;
   text-shadow: 0 0 15px #ff00ff, 0 0 25px #ff0088;
-  transform: translate(28%, -1200%);
+  transform: translate(10%, -1200%);
   animation: glitch 4s infinite;
 }
 
