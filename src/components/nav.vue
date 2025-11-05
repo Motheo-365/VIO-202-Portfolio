@@ -70,6 +70,14 @@ onUnmounted(() => {
       </li>
       <li>
         <a
+          href="#about"
+          :class="{ active: activeSection === 'about' }"
+          @click.prevent="scrollToSection('about')"
+        >
+          Behind the Code
+        </a>
+      <li>
+        <a
           href="#projects"
           :class="{ active: activeSection === 'projects' }"
           @click.prevent="scrollToSection('projects')"
