@@ -76,7 +76,9 @@ function handleScroll() {
       </section>
 
       <section id="about">
-        <About />
+        <div id = "about-wrapper">
+          <About />
+        </div>
       </section>
 
       <section id="projects">
@@ -106,6 +108,7 @@ function handleScroll() {
     align-items: center;
     position: relative;
     top: 0;
+    left: 3.2%;
     z-index: 2;
   }
 
@@ -114,10 +117,10 @@ function handleScroll() {
   }
 
    .animations-overlay {
-    pointer-events: none;
+    pointer-events: auto;
     position: fixed;
     inset: 0;
-    z-index: 0;
+    z-index: 1;
   }
 
   #nav {
@@ -125,17 +128,21 @@ function handleScroll() {
     right: 0;
   }
 
+  /* App.vue */
   #about {
-    transform: translateX(75%) translateY(30%);
     margin-bottom: 10rem;
-    z-index:1;
+    transform: translateX(18%);
+    z-index: 1;
   }
 
+  /* new wrapper for the visual offset */
   #projects {
+    transform: translateX(15%);
     z-index:1;
   }
 
   #contact {
+    transform: translateX(15%);
     z-index:1;
   }
 

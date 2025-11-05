@@ -44,7 +44,7 @@
       ></video>
       <div class="links">
         <a href="#top" title="Back to Top of Projects">← Back</a>
-        <a href="/Comic/Part3.html" target="_blank" title="View the Comic">View It Here</a>
+        <a href="/Comic/comic.html" target="_blank" title="View the Comic">View It Here</a>
       </div>
     </section>
 

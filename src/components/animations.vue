@@ -183,6 +183,8 @@ onMounted(() => {
   flex-direction: column;
   gap: 1rem;
   pointer-events: auto;
+
+  animation: fadeSlideIn 0.8s ease forwards;
 }
 
 button {
@@ -201,4 +203,16 @@ button:hover {
   background: #9d4edd;
   transform: scale(1.05);
 }
+
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 </style>
