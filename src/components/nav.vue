@@ -65,16 +65,16 @@ onUnmounted(() => {
           :class="{ active: activeSection === 'landing'}"
           @click.prevent="scrollToSection('landing')"
         >
-          Motheo Morena
+          Start
         </a>    
       </li>
       <li>
         <a
           href="#about"
-          :class="{ active: activeSection === 'Me' }"
-          @click.prevent="scrollToSection('Me')"
+          :class="{ active: activeSection === 'about' }"
+          @click.prevent="scrollToSection('about')"
         >
-          Behind the Code
+          Motheo M
         </a>
       </li>
       <li>
