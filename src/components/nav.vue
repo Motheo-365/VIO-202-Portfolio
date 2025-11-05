@@ -65,7 +65,7 @@ onUnmounted(() => {
           :class="{ active: activeSection === 'landing'}"
           @click.prevent="scrollToSection('landing')"
         >
-          Start
+          ◁ 
         </a>    
       </li>
       <li>
@@ -101,23 +101,15 @@ onUnmounted(() => {
 
 <style scoped>
 .navbar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2.5rem;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(10px);
-  padding: 0.8rem 2rem;
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.233);
+  padding: 0.8rem 2rem;
   z-index: 1000;
-  width: 100%;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  
-  animation: fadeSlideIn 0.8s ease forwards;
 }
 
 .brand {
@@ -142,6 +134,7 @@ onUnmounted(() => {
 }
 
 .nav-links a {
+  position: relative;
   text-decoration: none;
   color: white;
   font-size: 1rem;
