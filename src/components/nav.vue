@@ -110,6 +110,8 @@ onUnmounted(() => {
   background-color: rgba(0, 0, 0, 0.233);
   padding: 0.8rem 2rem;
   z-index: 1000;
+
+  animation: fadeSlideIn 0.8s ease forwards;
 }
 
 .brand {
