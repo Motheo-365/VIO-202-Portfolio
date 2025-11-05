@@ -20,31 +20,31 @@
     background-color: rgba(0, 0, 0, 0.602);
   }
 
-    #image {
-      border: 2px solid black;
-      padding: 20px;
-      border-radius: 25px;
-      width: 55rem;
-      height: 30rem;
-      background-image: url('../assets/me.jpg');
-      background-size: 35rem 40rem;
-      background-repeat: no-repeat;
-      background-position: center;
-    }
+  #image {
+    border: 2px solid black;
+    padding: 20px;
+    border-radius: 25px;
+    width: 55rem;
+    height: 30rem;
+    background-image: url('../assets/me.jpg');
+    background-size: 35rem 40rem;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 
-    h1 {
-    text-align: center;
-    }
+  h1 {
+  text-align: center;
+  }
 
-    .About {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: left;  /* so text aligns neatly instead of centered */
-    max-width: 30rem;
-    }
+  .About {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;  /* so text aligns neatly instead of centered */
+  max-width: 30rem;
+  }
 
-    p{
-      margin-bottom: 0.5rem;
-    }
+  p{
+    margin-bottom: 0.5rem;
+  }
 </style>
