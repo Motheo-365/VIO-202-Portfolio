@@ -101,21 +101,22 @@ onUnmounted(() => {
 
 <style scoped>
 .navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 0.8rem 2rem;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 70px; /* consistent height */
-  display: flex;
-  justify-content: space-between; /* brand on left, links on right */
-  align-items: center;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(10px); /* adds a soft glass effect */
-  padding: 0 3rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  right: 0;
+  margin: 0 auto;
   z-index: 1000;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-
+  width: 100%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  
   animation: fadeSlideIn 0.8s ease forwards;
 }
 
