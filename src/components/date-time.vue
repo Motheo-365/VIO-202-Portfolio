@@ -58,10 +58,15 @@ onUnmounted(() => {
 
         font-family: 'Share Tech Mono', monospace;
         color: #f0e5f5;
-        text-shadow: 0 0 20px rgba(255, 255, 255, 0.623), 0 0 20px rgba(10, 175, 230, 0);
+        text-shadow: 
+          0 0 10px rgba(221, 27, 255, 1),
+          0 0 15px rgba(10, 175, 230, 0.8);
         text-align: left;
         margin-bottom: 45em;
+        margin-top: 0.8rem;
         margin-right: 40em;
+
+        width: 25%;
     }
 
     .clock img {

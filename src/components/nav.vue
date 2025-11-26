@@ -109,8 +109,12 @@ onUnmounted(() => {
   display: flex;
   gap: 2rem;
   align-items: center;
+<<<<<<< Updated upstream
   color: white;
   background-color: rgba(0, 0, 0, 0.233);
+=======
+  background-color: rgba(0, 0, 0, 0.66);
+>>>>>>> Stashed changes
   padding: 0.8rem 2rem;
   z-index: 1000;
 
