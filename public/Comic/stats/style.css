@@ -1,0 +1,207 @@
+body {
+    background-color: #000018;
+    opacity: 0.93;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+hr {
+    height: 0.5rem;
+    background: #79d0ed;
+    box-shadow: 0 0 12px #79d0ed,  /* outer glow */
+              0 0 24px #79d0ed;  /* stronger secondary glow */
+}
+
+#landing_page {
+  width: 83%;
+  height: 60%;
+  margin: 0 auto;
+  display: block;
+}
+
+/* GLOWING ANIMATION FOR HEADING */
+    @keyframes glowPulse {
+        0% {
+            filter: drop-shadow(0 0 5px #79d0ed);
+        }
+        50% {
+            filter: drop-shadow(0 0 20px #79d0ed);
+        }
+        100% {
+            filter: drop-shadow(0 0 5px #79d0ed);
+        }
+    }
+
+
+.characters {
+    position: relative;
+    margin-top: -5px;
+}
+
+.comic {
+    margin-top: 50rem;
+    border-top: 0.5rem solid #79d0ed;
+
+    /* make the border glow */
+}
+
+#characters_heading {
+    position: relative;
+    z-index: -1;
+
+    animation: glowPulse 2s infinite ease-in-out;
+
+}
+
+#inale {
+    position: absolute;  /* overlay on top */
+    top: 8%;              /* adjust vertical position */
+    left: 57%;           /* center horizontally */
+    transform: translateX(-50%);
+    z-index: 2;
+    max-width: 150%;
+}
+
+#stats_heading {
+    position: absolute;
+    top: 9%;
+    left: 15%;
+    transform: translateX(-50%);
+    z-index: 2;
+    max-width: 50%;
+}
+
+#corporate {
+    position: absolute;
+    top: 75%;
+    left: 25%;
+    transform: translateX(-50%);
+    z-index: 2;
+    max-width: 70%;
+
+    transform: scaleX(-1);
+}
+
+#corporate_heading {
+    position: absolute;
+    top: 61%;
+    left: 55%;
+    transform: translateX(-50%);
+    z-index: 3;
+    max-width: 50%;
+}
+
+#corporate_line {
+    position: absolute;
+    top: 40%;
+    left: 35%;
+    transform: translateX(-65%);
+    z-index: -1;
+    max-width: 50%;
+}
+
+#robot {
+    position: absolute;
+    bottom: -460%;
+    left: 75%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+#robot-abilities {
+    position: absolute;
+    bottom: -430%;
+    left: 75%;
+    transform: translateX(-50%);
+    z-index: 3;
+    max-width: 50%;
+
+    transition: transform 0.6s ease;
+    cursor: pointer;
+}
+
+#robot-abilities:hover {
+    transform: translateX(-50%) translateY(-20px);
+}
+
+#robot_text {
+    background-color: aliceblue;
+    position: absolute;
+    bottom: -455%;
+    left: 59%;
+    transform: translateX(-50%);
+    z-index: 3;
+    max-width: 50%;
+    padding: 0.5rem;
+    border-radius: 8px;
+
+    opacity: 0;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+
+    animation: glowPulse 2s infinite ease-in-out;
+}
+
+#robot-abilities:hover + #robot_text {
+    opacity: 1;
+}
+
+#robot-abilities:hover {
+    transform: translateX(-50%) translateY(-20px);
+}
+
+#intro {
+    position: relative;
+    z-index: 1;
+    max-width: 60%;
+    margin: auto;
+    padding: 1rem;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    transform: translateY(40rem);
+
+    cursor: pointer;
+}
+
+/* Adds pointer cursor to the first scene */
+    #scene_1 {
+        cursor: pointer;
+    }
+
+
+/* Keyframe to make glow */
+@keyframes glowPulse {
+    0% {
+        filter: drop-shadow(0 0 5px #79d0ed);
+    }
+    50% {
+        filter: drop-shadow(0 0 20px #79d0ed);
+    }
+    100% {
+        filter: drop-shadow(0 0 5px #79d0ed);
+    }
+}
+
+/* Comic */
+#scene1 {
+    position: relative;
+    margin-top: 30rem;
+}
+
+#typing_on_keyboard {
+    cursor: pointer;
+}
+
+#beep_beep {
+    cursor: pointer;
+
+    max-width: 50%;
+}
+
+#huhh {
+    cursor: pointer;
+    left:  50%;
+}

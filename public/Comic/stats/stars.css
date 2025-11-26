@@ -1,0 +1,54 @@
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;       /* clicks go through */
+  background: transparent;
+  z-index: -1;                /* behind the content */
+}
+
+/* Create multiple stars with box-shadow trick */
+.stars::before,
+.stars::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  box-shadow:
+    20vw 10vh 2px white,
+    40vw 20vh 1px white,
+    60vw 70vh 2px white,
+    80vw 30vh 1px white,
+    10vw 80vh 2px white,
+    90vw 60vh 1px white,
+    50vw 50vh 2px white,
+    30vw 40vh 1px white,
+    70vw 90vh 2px white,
+    15vw 25vh 1px white;
+  animation: twinkle 2s infinite alternate;
+}
+
+/* Second layer for depth & variation */
+.stars::after {
+  box-shadow:
+    25vw 15vh 2px white,
+    45vw 75vh 1px white,
+    65vw 25vh 2px white,
+    85vw 85vh 1px white,
+    5vw  55vh 2px white,
+    95vw 35vh 1px white,
+    55vw 10vh 1px white,
+    35vw 60vh 2px white,
+    75vw 45vh 1px white,
+    20vw 90vh 1px white;
+  animation-delay: 1s; /* offset so twinkles don’t sync */
+}
+
+/* Twinkling effect */
+@keyframes twinkle {
+  from { opacity: 0.3; transform: scale(0.8); }
+  to   { opacity: 1;   transform: scale(1.2); }
+}
