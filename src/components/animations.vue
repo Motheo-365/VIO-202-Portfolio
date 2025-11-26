@@ -21,7 +21,11 @@ let shapePositions = [];
 let currentShape = 'random';
 const mouse = { x: null, y: null };
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 let scrollY = 0;
+=======
+let hue = 0; // rainbow color cycling
+>>>>>>> Stashed changes
 =======
 let hue = 0; // rainbow color cycling
 >>>>>>> Stashed changes
@@ -91,8 +95,11 @@ function setShape(shapeType) {
 }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 // Animate dots with hover rainbow and parallax
 =======
+=======
+>>>>>>> Stashed changes
 // Section-relative scroll factor (0 to 1)
 function getSectionScroll(sectionId) {
   const section = document.getElementById(sectionId);
@@ -103,6 +110,9 @@ function getSectionScroll(sectionId) {
 }
 
 // Animate dots with hover rainbow and subtle parallax
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 function animate() {
   ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
@@ -115,14 +125,23 @@ function animate() {
 
   const scrollFactor = window.scrollY / (document.body.scrollHeight - window.innerHeight); // 0-1
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   dots.forEach((d) => {
     d.x += (d.tx - d.x) * d.speed;
     d.y += (d.ty - d.y) * d.speed;
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     const parallaxX = (d.tx - canvas.value.width / 2) * 0.000085 * scrollY;
     const parallaxY = (d.ty - canvas.value.height / 2) * 0.000085 * scrollY;
+=======
+    // subtle parallax relative to full scroll
+    const parallaxX = (d.tx - canvas.value.width / 2) * 0.15 * scrollFactor;
+    const parallaxY = (d.ty - canvas.value.height / 2) * 0.15 * scrollFactor;
+>>>>>>> Stashed changes
 =======
     // subtle parallax relative to full scroll
     const parallaxX = (d.tx - canvas.value.width / 2) * 0.15 * scrollFactor;
@@ -133,7 +152,10 @@ function animate() {
     const drawY = d.y + parallaxY;
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     // Hover rainbow effect
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     let color = '#eae1fc53';
@@ -146,6 +168,9 @@ function animate() {
         const localHue = (dist * 2) % 360; // rainbow based on distance
 =======
         const localHue = (hue + dist) % 360;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         color = `hsl(${localHue}, 100%, 65%)`;
       }

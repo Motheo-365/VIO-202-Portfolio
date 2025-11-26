@@ -109,7 +109,11 @@ onUnmounted(() => {
   justify-content: center; /* center the items horizontally */
   align-items: center;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   background-color: rgba(0, 0, 0, 0.796);
+=======
+  background-color: rgba(0, 0, 0, 0.66);
+>>>>>>> Stashed changes
 =======
   background-color: rgba(0, 0, 0, 0.66);
 >>>>>>> Stashed changes
