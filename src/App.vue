@@ -144,11 +144,12 @@ function handleScroll() {
   
   #projects {
     z-index:1;
-    transform: translateY(12%);
+    transform: translateY(20%);
   }
 
   #contact {
     z-index:1;
+      transform: translateY(25%);
   }
 
   html {
