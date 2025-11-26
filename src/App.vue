@@ -144,6 +144,7 @@ function handleScroll() {
   
   #projects {
     z-index:1;
+    transform: translateY(12%);
   }
 
   #contact {
