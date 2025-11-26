@@ -20,9 +20,9 @@ const radius = 1.2;
 let shapePositions = [];
 let currentShape = 'random';
 const mouse = { x: null, y: null };
-let scrollY = 0;
+let hue = 0; // rainbow color cycling
 
-// Generate positions for shapes
+// Generates shape positions
 function getShapePositions(shapeType) {
   const tempCanvas = document.createElement('canvas');
   const tempCtx = tempCanvas.getContext('2d');
@@ -34,7 +34,8 @@ function getShapePositions(shapeType) {
   tempCtx.textBaseline = 'middle';
 
   if (shapeType === 'circle') {
-    for (let i = 0; i < 30; i++) {
+    const numCircles = 30;
+    for (let i = 0; i < numCircles; i++) {
       const cx = Math.random() * canvas.value.width;
       const cy = Math.random() * canvas.value.height;
       const r = 15 + Math.random() * 4;
@@ -43,7 +44,8 @@ function getShapePositions(shapeType) {
       tempCtx.fill();
     }
   } else if (shapeType === 'heart') {
-    for (let i = 0; i < 50; i++) {
+    const numHearts = 50;
+    for (let i = 0; i < numHearts; i++) {
       const x = Math.random() * canvas.value.width;
       const y = Math.random() * canvas.value.height;
       const size = 2 + Math.random() * 3;
@@ -58,8 +60,10 @@ function getShapePositions(shapeType) {
       }
     }
   } else if (shapeType === 'text') {
+    const aboutSection = document.getElementById('about');
+    const sectionHeight = aboutSection ? aboutSection.offsetHeight : canvas.value.height;
     tempCtx.font = 'bold 70px Arial';
-    tempCtx.fillText('MOTHEO MORENA', canvas.value.width / 2, canvas.value.height - 50);
+    tempCtx.fillText('MOTHEO MORENA', canvas.value.width / 2, sectionHeight - 50);
   }
 
   const data = tempCtx.getImageData(0, 0, canvas.value.width, canvas.value.height).data;
@@ -73,7 +77,7 @@ function getShapePositions(shapeType) {
   return positions;
 }
 
-// Set target positions for dots
+// Assign target positions
 function setShape(shapeType) {
   currentShape = shapeType;
   shapePositions = getShapePositions(shapeType);
@@ -84,7 +88,16 @@ function setShape(shapeType) {
   }
 }
 
-// Animate dots with hover rainbow and parallax
+// Section-relative scroll factor (0 to 1)
+function getSectionScroll(sectionId) {
+  const section = document.getElementById(sectionId);
+  if (!section) return 0;
+  const rect = section.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+  return Math.min(Math.max(1 - rect.top / windowHeight, 0), 1);
+}
+
+// Animate dots with hover rainbow and subtle parallax
 function animate() {
   ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
   ctx.fillRect(0, 0, canvas.value.width, canvas.value.height);
@@ -156,6 +169,7 @@ onMounted(() => {
   el.height = window.innerHeight;
   ctx = el.getContext('2d');
 
+  // initialize dots
   for (let i = 0; i < numDots; i++) {
     dots.push({
       x: Math.random() * el.width,
@@ -176,10 +190,6 @@ onMounted(() => {
   window.addEventListener('mouseleave', () => {
     mouse.x = null;
     mouse.y = null;
-  });
-
-  window.addEventListener('scroll', () => {
-    scrollY = window.scrollY;
   });
 
   window.addEventListener('resize', () => {
