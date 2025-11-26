@@ -225,6 +225,7 @@ button:hover {
   transform: scale(1.05);
 }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 @keyframes fadeSlideIn {
   0% {
@@ -238,6 +239,9 @@ button:hover {
 }
 
 </style>
+=======
+</style>
+>>>>>>> Stashed changes
 =======
 </style>
 >>>>>>> Stashed changes
