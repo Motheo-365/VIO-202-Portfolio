@@ -43,7 +43,7 @@
 
     <!-- JAVASCRIPT GAME -->
     <section id="singleJS" ref="singleJS">
-      <h2>JavaScript Game</h2>
+      <h2>Tic Tac Toe</h2>
       <video
         :src="ticTacVideo"
         width="900"
