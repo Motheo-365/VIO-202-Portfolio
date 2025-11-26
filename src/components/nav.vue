@@ -110,7 +110,11 @@ onUnmounted(() => {
   align-items: center;
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   background-color: rgba(0, 0, 0, 0.796);
+=======
+  background-color: rgba(0, 0, 0, 0.66);
+>>>>>>> Stashed changes
 =======
   background-color: rgba(0, 0, 0, 0.66);
 >>>>>>> Stashed changes
