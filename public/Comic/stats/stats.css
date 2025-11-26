@@ -130,3 +130,18 @@
     #stats_content_corporate .stat-icon,
     #stats_content_corporate .stat-value { width: 32px; }
 }
+
+/* make the button flow normally and add spacing below the main content */
+.next_page {
+  position: relative;        /* override absolute/fixed */
+  margin: 21rem auto 2rem;   /* increased top margin to push it further down */
+  display: inline-block;
+  bottom: auto !important;
+  top: auto !important;
+  transform: none !important; /* remove any transform that pins it */
+}
+
+/* If the parent .infographic has fixed height, add bottom padding instead */
+.infographic {
+  padding-bottom: 20rem;     /* increased padding so the button has more room */
+}
