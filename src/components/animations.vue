@@ -21,10 +21,6 @@ let shapePositions = [];
 let currentShape = 'random';
 const mouse = { x: null, y: null };
 let scrollY = 0;
-let hue = 0; // rainbow color cycling=======
-let hue = 0; // rainbow color cycling=======
-let hue = 0; // rainbow color cycling=======
-let hue = 0; // rainbow color cycling
 
 // Generate positions for shapes
 function getShapePositions(shapeType) {
@@ -62,10 +58,8 @@ function getShapePositions(shapeType) {
       }
     }
   } else if (shapeType === 'text') {
-    const aboutSection = document.getElementById('about');
-    const sectionHeight = aboutSection ? aboutSection.offsetHeight : canvas.value.height;
     tempCtx.font = 'bold 70px Arial';
-    tempCtx.fillText('MOTHEO MORENA', canvas.value.width / 2, sectionHeight - 50);
+    tempCtx.fillText('MOTHEO MORENA', canvas.value.width / 2, canvas.value.height - 50);
   }
 
   const data = tempCtx.getImageData(0, 0, canvas.value.width, canvas.value.height).data;
@@ -91,39 +85,16 @@ function setShape(shapeType) {
 }
 
 // Animate dots with hover rainbow and parallax
-function getSectionScroll(sectionId) {
-  const section = document.getElementById(sectionId);
-  if (!section) return 0;
-  const rect = section.getBoundingClientRect();
-  const windowHeight = window.innerHeight;
-  return Math.min(Math.max(1 - rect.top / windowHeight, 0), 1);
-}
-
-// Animate dots with hover rainbow and subtle parallax
 function animate() {
   ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
   ctx.fillRect(0, 0, canvas.value.width, canvas.value.height);
-  hue += 2;
-  if (hue > 360) hue = 0;
-
-  const scrollFactor = window.scrollY / (document.body.scrollHeight - window.innerHeight); // 0-1
 
   dots.forEach((d) => {
     d.x += (d.tx - d.x) * d.speed;
     d.y += (d.ty - d.y) * d.speed;
 
+    const parallaxX = (d.tx - canvas.value.width / 2) * 0.000085 * scrollY;
     const parallaxY = (d.ty - canvas.value.height / 2) * 0.000085 * scrollY;
-    // subtle parallax relative to full scroll
-    const parallaxX = (d.tx - canvas.value.width / 2) * 0.15 * scrollFactor;
-    const parallaxY = (d.ty - canvas.value.height / 2) * 0.15 * scrollFactor;
-    const parallaxX = (d.tx - canvas.value.width / 2) * 0.15 * scrollFactor;
-    const parallaxY = (d.ty - canvas.value.height / 2) * 0.15 * scrollFactor;
-    // subtle parallax relative to full scroll
-    const parallaxX = (d.tx - canvas.value.width / 2) * 0.15 * scrollFactor;
-    const parallaxY = (d.ty - canvas.value.height / 2) * 0.15 * scrollFactor;
-    // subtle parallax relative to full scroll
-    const parallaxX = (d.tx - canvas.value.width / 2) * 0.15 * scrollFactor;
-    const parallaxY = (d.ty - canvas.value.height / 2) * 0.15 * scrollFactor;
 
     const drawX = d.x + parallaxX;
     const drawY = d.y + parallaxY;
@@ -136,7 +107,6 @@ function animate() {
       const dist = Math.sqrt(dx * dx + dy * dy);
       if (dist < 100) {
         const localHue = (dist * 2) % 360; // rainbow based on distance
-        const localHue = (hue + dist) % 360;
         color = `hsl(${localHue}, 100%, 65%)`;
       }
     }
@@ -150,14 +120,12 @@ function animate() {
   requestAnimationFrame(animate);
 }
 
-
 onMounted(() => {
   const el = canvas.value;
   el.width = window.innerWidth;
   el.height = window.innerHeight;
   ctx = el.getContext('2d');
 
-  // initialize dots
   for (let i = 0; i < numDots; i++) {
     dots.push({
       x: Math.random() * el.width,
