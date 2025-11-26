@@ -89,12 +89,42 @@ function animate() {
   ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
   ctx.fillRect(0, 0, canvas.value.width, canvas.value.height);
 
+  hue += 2;
+  if (hue > 360) hue = 0;
+
+  const scrollY = window.scrollY;
+  const windowH = window.innerHeight;
+  const scrollFactor = scrollY / (document.body.scrollHeight - windowH);
+
   dots.forEach((d) => {
+    // Move dots toward their target
     d.x += (d.tx - d.x) * d.speed;
     d.y += (d.ty - d.y) * d.speed;
 
-    const parallaxX = (d.tx - canvas.value.width / 2) * 0.000085 * scrollY;
-    const parallaxY = (d.ty - canvas.value.height / 2) * 0.000085 * scrollY;
+    // Per-section parallax and dot size
+    let parallaxMultiplier = 0.04;
+    let dotSize = radius;
+
+    if (scrollY < windowH) {
+      // Landing section
+      parallaxMultiplier = 0.02;
+      dotSize = 1.2;
+    } else if (scrollY >= windowH && scrollY < windowH * 2) {
+      // About section
+      parallaxMultiplier = 0.05;
+      dotSize = 1.5;
+    } else if (scrollY >= windowH * 2 && scrollY < windowH * 3) {
+      // Projects section
+      parallaxMultiplier = 0.03;
+      dotSize = 1.3;
+    } else {
+      // Contact section
+      parallaxMultiplier = 0.02;
+      dotSize = 1.1;
+    }
+
+    const parallaxX = (d.tx - canvas.value.width / 2) * parallaxMultiplier * scrollFactor;
+    const parallaxY = (d.ty - canvas.value.height / 2) * parallaxMultiplier * scrollFactor;
 
     const drawX = d.x + parallaxX;
     const drawY = d.y + parallaxY;
@@ -106,14 +136,14 @@ function animate() {
       const dy = drawY - mouse.y;
       const dist = Math.sqrt(dx * dx + dy * dy);
       if (dist < 100) {
-        const localHue = (dist * 2) % 360; // rainbow based on distance
+        const localHue = (hue + dist) % 360;
         color = `hsl(${localHue}, 100%, 65%)`;
       }
     }
 
     ctx.fillStyle = color;
     ctx.beginPath();
-    ctx.arc(drawX, drawY, radius, 0, Math.PI * 2);
+    ctx.arc(drawX, drawY, dotSize, 0, Math.PI * 2);
     ctx.fill();
   });
 
