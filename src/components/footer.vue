@@ -1,12 +1,6 @@
 <template>
   <div class="socials">
-    <a href="https://www.instagram.com" target="_blank">
-      <img id="instagram" src="../assets/instagram.png" alt="Instagram Logo"/>
-    </a>
-    <a href="https://www.linkedin.com" target="_blank">
-      <img id="linkedin" src="../assets/linkedin.png" alt="LinkedIn Logo"/>
-    </a>
-    <a href="https://www.github.com" target="_blank">
+    <a href="https://github.com" target="_blank">
       <img id="github" src="../assets/github.png" alt="GitHub Logo"/>
     </a>
   </div>
