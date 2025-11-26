@@ -103,29 +103,15 @@ onUnmounted(() => {
 .navbar {
   position: fixed;
   top: 0;
-
-  width: 50%;
-
+  left: 50rem;
+  right: 0; /* let it stretch across */
   display: flex;
-  gap: 2rem;
+  justify-content: center; /* center the items horizontally */
   align-items: center;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  color: white;
   background-color: rgba(0, 0, 0, 0.233);
-=======
-  background-color: rgba(0, 0, 0, 0.66);
->>>>>>> Stashed changes
-=======
-  background-color: rgba(0, 0, 0, 0.66);
->>>>>>> Stashed changes
-=======
-  background-color: rgba(0, 0, 0, 0.66);
->>>>>>> Stashed changes
   padding: 0.8rem 2rem;
   z-index: 1000;
-
+  color: white;
   animation: fadeSlideIn 0.8s ease forwards;
 }
 
@@ -154,8 +140,7 @@ onUnmounted(() => {
   position: relative;
   text-decoration: none;
   color: white;
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-size: 1.5rem;
   padding: 0.5rem 0.8rem;
   border-radius: 8px;
   border: 2px solid transparent;
