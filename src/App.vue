@@ -56,12 +56,12 @@ function handleScroll() {
 </script>
 
 <template>
-  <div>
+  <div class >
     <!-- Show loading screen -->
     <LoadingPage v-if="loading" />
 
     <!-- Main app -->
-    <div v-else>
+    <div v-else class = "main">
       <header class="header-bar">
         <p id="date"><DateTime /></p>
         <p id="nav"><Nav /></p>
@@ -76,7 +76,7 @@ function handleScroll() {
       </section>
 
       <section id="about">
-        <div id = "about-wrapper">
+        <div class = "about-wrapper">
           <About />
         </div>
       </section>
@@ -108,7 +108,6 @@ function handleScroll() {
     align-items: center;
     position: relative;
     top: 0;
-    left: 3.2%;
     z-index: 2;
   }
 
@@ -117,32 +116,37 @@ function handleScroll() {
   }
 
    .animations-overlay {
-    pointer-events: auto;
+    pointer-events: none;
     position: fixed;
     inset: 0;
-    z-index: 1;
+    z-index: 0;
   }
+
+.main {
+  margin: 0rem auto;
+  max-width: 85%;
+}
 
   #nav {
     margin-right: 25rem;
     right: 0;
   }
 
-  /* App.vue */
   #about {
     margin-bottom: 10rem;
-    transform: translateX(18%);
     z-index: 1;
   }
 
-  /* new wrapper for the visual offset */
+  .about-wrapper {
+    transform: translateX(75%) translateY(30%);
+  }
+
+  
   #projects {
-    transform: translateX(15%);
     z-index:1;
   }
 
   #contact {
-    transform: translateX(15%);
     z-index:1;
   }
 

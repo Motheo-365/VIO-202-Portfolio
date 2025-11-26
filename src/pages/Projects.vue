@@ -10,13 +10,6 @@
       <p class="caption">Comic</p>
     </section>
 
-    <section class="cpp" @click="scrollTo('singleCpp')">
-      <p id="image">
-        <img :src="cppImg" alt="Picture of C++ code" />
-      </p>
-      <p class="caption">C++</p>
-    </section>
-
     <section class="javascript" @click="scrollTo('singleJS')">
       <p id="image">
         <img :src="ticTacImg" alt="Picture of Tic Tac Toe game" />
@@ -46,20 +39,6 @@
         <a href="#top" title="Back to Top of Projects">← Back</a>
         <a href="/Comic/comic.html" target="_blank" title="View the Comic">View It Here</a>
       </div>
-    </section>
-
-    <!-- C++ -->
-    <section id="singleCpp" ref="singleCpp">
-      <h2>C++ Project</h2>
-      <video
-        :src="sampleVideo"
-        width="900"
-        height="540"
-        autoplay
-        muted
-        controls
-      ></video>
-      <a href="#top" title="Back to Top of Projects">← Back</a>
     </section>
 
     <!-- JAVASCRIPT GAME -->

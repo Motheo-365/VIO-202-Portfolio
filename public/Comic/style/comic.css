@@ -1,0 +1,147 @@
+.landing-page,
+.stats,
+.comic {
+  position: relative;
+  z-index: 1;
+}
+
+.landing-page {
+  z-index: 3;
+}
+
+.stats {
+  margin-top: 5rem; /* ensures spacing below landing page */
+  z-index: 2;
+}
+
+.comic {
+  margin-top: 5rem;
+  z-index: 1;
+}
+
+#intro {
+    position: relative;
+    max-width: 60%;
+    margin: auto;
+    padding: 0.1rem;
+    color: white;
+    font-family: "Zain", sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    transform: translateY(40rem);
+    cursor: pointer;
+}
+
+#scene_1 {
+    cursor: pointer;
+    position: relative;
+    max-width: 55vw;
+    margin-top: 3rem;
+    display: block;
+}
+
+#panel_1 img, #panel_2 img {
+    height: 80vh;
+    width: auto;
+    display: block;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+
+#panel_2 {
+    position: relative;
+    margin: 0rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+
+    cursor: pointer;
+}
+
+.comic {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.intro {
+    max-width: 50vw;
+    position: relative;
+    left: 4vw;
+    margin: 0 auto;
+}
+
+.text {
+    background-color: white;
+    color: black;
+    font-family: "Zain", sans-serif;
+    font-weight: 300;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    margin: 0rem auto;
+    display: inline-block;
+    position: relative;
+    left: -13.4rem;
+}
+
+.beep {
+  color: rgb(131, 8, 8);
+  font-size: 4.5rem;
+  transform-origin: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.click {
+  position: relative;
+  color: rgb(195, 0, 255);
+  font-size: 0.8rem;
+  transform-origin: center;
+  transform: translate(120, 750);
+  z-index: 1;
+}
+
+/* Animate beeps only on hover */
+#panel_2:hover .beep {
+  animation: beeping 1.5s forwards, glowPulse 2s ease-in-out;
+}
+
+.huhhh {
+  position: relative;
+  font-size: 2rem;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Glowing border animation */
+@keyframes glowPulse {
+  0% { filter: drop-shadow(0 0 5px #f29858); }
+  50% { filter: drop-shadow(0 0 10px #f29858); }
+  100% { filter: drop-shadow(0 0 5px #f29858); }
+}
+
+/* Flash opacity effect */
+@keyframes beeping {
+  0%, 100% { opacity: 0; transform: scale(1); }
+  20%, 60% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Stagger delays properly */
+#panel_2 .beep:nth-of-type(1) { animation-delay: 0s; }
+#panel_2 .beep:nth-of-type(2) { animation-delay: 0.3s; }
+#panel_2 .beep:nth-of-type(3) { animation-delay: 0.6s; }
+#panel_2 .beep:nth-of-type(4) { animation-delay: 0.9s; }
+
+.huhhh {
+  opacity: 0;
+  position: relative;
+  transform: translateY(150px);
+  font-size: 2.5rem;
+  transition: opacity 0.5s ease-in-out;
+}
