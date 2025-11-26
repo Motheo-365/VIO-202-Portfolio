@@ -108,7 +108,7 @@ onUnmounted(() => {
   display: flex;
   justify-content: center; /* center the items horizontally */
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.233);
+  background-color: rgba(0, 0, 0, 0.796);
   padding: 0.8rem 2rem;
   z-index: 1000;
   color: white;
