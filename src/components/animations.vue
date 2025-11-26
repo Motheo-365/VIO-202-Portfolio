@@ -20,9 +20,9 @@ const radius = 1.2;
 let shapePositions = [];
 let currentShape = 'random';
 const mouse = { x: null, y: null };
-let hue = 0; // for rainbow color cycling
+let scrollY = 0;
 
-// Generates shape positions
+// Generate positions for shapes
 function getShapePositions(shapeType) {
   const tempCanvas = document.createElement('canvas');
   const tempCtx = tempCanvas.getContext('2d');
@@ -34,8 +34,7 @@ function getShapePositions(shapeType) {
   tempCtx.textBaseline = 'middle';
 
   if (shapeType === 'circle') {
-    const numCircles = 30;
-    for (let i = 0; i < numCircles; i++) {
+    for (let i = 0; i < 30; i++) {
       const cx = Math.random() * canvas.value.width;
       const cy = Math.random() * canvas.value.height;
       const r = 15 + Math.random() * 4;
@@ -44,8 +43,7 @@ function getShapePositions(shapeType) {
       tempCtx.fill();
     }
   } else if (shapeType === 'heart') {
-    const numHearts = 50;
-    for (let i = 0; i < numHearts; i++) {
+    for (let i = 0; i < 50; i++) {
       const x = Math.random() * canvas.value.width;
       const y = Math.random() * canvas.value.height;
       const size = 2 + Math.random() * 3;
@@ -75,7 +73,7 @@ function getShapePositions(shapeType) {
   return positions;
 }
 
-// Assign target positions
+// Set target positions for dots
 function setShape(shapeType) {
   currentShape = shapeType;
   shapePositions = getShapePositions(shapeType);
@@ -86,33 +84,36 @@ function setShape(shapeType) {
   }
 }
 
-// Animate the colour animation :)
+// Animate dots with hover rainbow and parallax
 function animate() {
   ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
   ctx.fillRect(0, 0, canvas.value.width, canvas.value.height);
-
-  hue += 2;
-  if (hue > 360) hue = 0;
 
   dots.forEach((d) => {
     d.x += (d.tx - d.x) * d.speed;
     d.y += (d.ty - d.y) * d.speed;
 
-    // check if near mouse
+    const parallaxX = (d.tx - canvas.value.width / 2) * 0.000085 * scrollY;
+    const parallaxY = (d.ty - canvas.value.height / 2) * 0.000085 * scrollY;
+
+    const drawX = d.x + parallaxX;
+    const drawY = d.y + parallaxY;
+
+    // Hover rainbow effect
     let color = '#eae1fc53';
     if (mouse.x && mouse.y) {
-      const dx = d.x - mouse.x;
-      const dy = d.y - mouse.y;
+      const dx = drawX - mouse.x;
+      const dy = drawY - mouse.y;
       const dist = Math.sqrt(dx * dx + dy * dy);
       if (dist < 100) {
-        const localHue = (hue + dist) % 360;
-        color = `hsl(${localHue}, 100%, 65%)`; // rainbow glow
+        const localHue = (dist * 2) % 360; // rainbow based on distance
+        color = `hsl(${localHue}, 100%, 65%)`;
       }
     }
 
     ctx.fillStyle = color;
     ctx.beginPath();
-    ctx.arc(d.x, d.y, radius, 0, Math.PI * 2);
+    ctx.arc(drawX, drawY, radius, 0, Math.PI * 2);
     ctx.fill();
   });
 
@@ -145,6 +146,10 @@ onMounted(() => {
   window.addEventListener('mouseleave', () => {
     mouse.x = null;
     mouse.y = null;
+  });
+
+  window.addEventListener('scroll', () => {
+    scrollY = window.scrollY;
   });
 
   window.addEventListener('resize', () => {
